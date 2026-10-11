@@ -40,7 +40,8 @@
   "downloadUrl": "https://vestigex.app/#download",
   "author": {
     "@type": "Person",
-    "name": "Rodel Plasabas"
+    "name": "Rodel Plasabas",
+    "sameAs": "https://www.linkedin.com/in/rodelplasabas"
   },
   "featureList": [
     "Disk image analysis (E01, raw, VHD/VHDX)",
@@ -125,6 +126,11 @@ p { margin: 0; }
 .nav { display: flex; gap: 22px; margin-left: auto; align-items: center; }
 .nav a { color: var(--muted); text-decoration: none; font-size: .92rem; }
 .nav a:hover { color: var(--fg); }
+.nav a.social { display: inline-flex; align-items: center; gap: 8px; }
+.nav a.social .lbl { display: none; }
+@media (max-width: 860px) { .nav a.social .lbl { display: inline; } }
+.by a { color: inherit; display: inline-flex; align-items: center; gap: 6px; }
+.by a:hover { color: var(--fg); }
 .nav a.btn-primary, .nav a.btn-primary:hover { color: var(--accent-ink); }
 .btn { display: inline-flex; align-items: center; gap: 10px; font: 500 .95rem/1 var(--body); padding: 12px 18px; border-radius: 6px; text-decoration: none; border: 1px solid transparent; cursor: pointer; }
 .btn-primary { background: var(--accent); color: var(--accent-ink); }
@@ -337,6 +343,7 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
       <a href="#hunt">Threat hunt</a>
       <a href="#acquire">Acquisition</a>
       <a href="#changelog">Changelog</a>
+      <a class="social" href="https://www.linkedin.com/in/rodelplasabas" target="_blank" rel="noopener" aria-label="Rodel Plasabas on LinkedIn" title="Rodel Plasabas on LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg><span class="lbl">LinkedIn</span></a>
       <a class="btn btn-primary btn-sm" href="#download">Download</a>
     </nav>
   </div>
@@ -679,7 +686,7 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
       <div>
         <img class="on-dark" src="assets/vestigex-logo-dark.png" alt="VESTIGEX" width="117" height="26">
         <img class="on-light" src="assets/vestigex-logo-light.png" alt="VESTIGEX" width="117" height="26">
-        <div class="by"><span>Developed by Rodel Plasabas</span><span class="mono" style="font-size:.8rem">Version 1.1.1-beta</span></div>
+        <div class="by"><span>Developed by <a href="https://www.linkedin.com/in/rodelplasabas" target="_blank" rel="noopener">Rodel Plasabas <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></span><span class="mono" style="font-size:.8rem">Version 1.1.1-beta</span></div>
       </div>
       <div class="ack">
         <h3>Acknowledgements</h3>
