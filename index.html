@@ -34,7 +34,7 @@
   "applicationCategory": "SecurityApplication",
   "applicationSubCategory": "Digital forensics and incident response",
   "operatingSystem": "Windows 10, Windows 11",
-  "softwareVersion": "1.1.1-beta",
+  "softwareVersion": "1.1.2-beta",
   "url": "https://vestigex.app/",
   "image": "https://vestigex.app/assets/og-image.png",
   "downloadUrl": "https://vestigex.app/#download",
@@ -356,9 +356,9 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
     <div>
       <div class="eyebrow">Digital forensics &amp; investigation platform</div>
       <h1>Every trace, <b>examined.</b></h1>
-      <p class="lede">VESTIGEX is a Windows workstation for digital forensics and incident response. Bring disk images, memory, phones and triage collections into one case, then search, hunt and report, all on your own machine.</p>
+      <p class="lede">VESTIGEX is a Windows platform for digital forensics and incident response. Bring disk images, memory, phones and triage collections into one case, then search, hunt and report, all on your own machine.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="#download">Download 1.1.1-beta</a>
+        <a class="btn btn-primary" href="#download">Download 1.1.2-beta</a>
         <a class="btn btn-ghost" href="#capabilities">See what it does</a>
       </div>
       <p class="cta-note">Windows 10 / 11 · installs per user, no administrator rights</p>
@@ -582,7 +582,7 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
   <div class="wrap">
     <div class="eyebrow">Download</div>
     <h2 style="margin-top:14px">Get VESTIGEX</h2>
-    <div class="ver"><span class="v">1.1.1-beta</span><span>Phones and fixes · Windows 10 and 11, 64-bit</span></div>
+    <div class="ver"><span class="v">1.1.2-beta</span><span>New features and fixes · Windows 10 and 11, 64-bit</span></div>
 
     <div class="pkgs">
       <div class="pkg main-pkg">
@@ -594,17 +594,17 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
           <div class="file"><div><code>OllamaSetup.exe</code><small>Optional, for the local AI</small></div><span class="sz">installer</span></div>
           <div class="file"><div><code>VESTIGEX User Guide.pdf</code><small>Getting started and every page explained</small></div><span class="sz">PDF</span></div>
         </div>
-        <a class="btn btn-primary dl-link" href="https://drive.google.com/file/d/1YBLxA6icnfTHXQNQcbrVcCf1zVDO4wBp/view?usp=sharing" target="_blank" rel="noopener">Download install package</a>
-        <span class="cta-note" style="margin-top:0">Hosted on Google Drive. Large files open a "can't scan for viruses" notice; choose Download anyway.</span>
+        <a class="btn btn-primary dl-link" href="https://drive.google.com/file/d/17JEWhtYntRGoTLWiySx75uoZqhZbRgzK/view?usp=sharing" target="_blank" rel="noopener">Download install package</a>
+        <span class="cta-note" style="margin-top:0">Hosted on Google Drive.</span>
       </div>
       <div class="pkg">
         <div class="pkg-h"><h3>Setup wizard</h3><span class="badge" style="color:var(--muted)">Alternative</span></div>
         <p>The same installer as a classic wizard. Use it on PCs without Smart App Control until the installer is code-signed. It downloads as one ZIP; extract it and run the .exe. The ZIP contains:</p>
         <div class="files">
-          <div class="file"><div><code>VESTIGEX-Setup-1.1.1-beta.exe</code></div><span class="sz">wizard</span></div>
-          <div class="file"><div><code>VESTIGEX-Setup-1.1.1-beta.bin</code><small>Keep next to the .exe</small></div><span class="sz">data</span></div>
+          <div class="file"><div><code>VESTIGEX-Setup-1.1.2-beta.exe</code></div><span class="sz">wizard</span></div>
+          <div class="file"><div><code>VESTIGEX-Setup-1.1.2-beta.bin</code><small>Keep next to the .exe</small></div><span class="sz">data</span></div>
         </div>
-        <a class="btn btn-ghost dl-link" href="https://drive.google.com/file/d/1WW6KB4r3w6aYOVep4OKjgRNa73JbXS3G/view?usp=drive_link" target="_blank" rel="noopener">Download setup wizard</a>
+        <a class="btn btn-ghost dl-link" href="https://drive.google.com/file/d/1uzpIZZ_7LZGyd5W60IeeqrlBVfdqatG3/view?usp=sharing" target="_blank" rel="noopener">Download setup wizard</a>
         <a href="assets/VESTIGEX-User-Guide.pdf" style="font-size:.9rem">Read the user guide (PDF)</a>
       </div>
     </div>
@@ -649,6 +649,15 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
     </div>
     <div class="log">
       <div class="rel">
+        <div><div class="rv">1.1.2-beta</div><div class="rn">Web server log parsing and timeline fixes</div></div>
+        <ul>
+          <li><b>Rotated web logs supported:</b> .log.1, .log.2, .log.3, and onward.</li>
+          <li><b>Web browser events in the Timeline:</b> history and download start/completion times, linked to artifact details.</li>
+          <li><b>Independent Timeline date/time filters</b> without changing the case-wide range.</li>
+          <li><b>Compact global date/time controls</b> with 24-hour time, optional seconds, and display timezone support.</li>
+        </ul>
+      </div>
+      <div class="rel">
         <div><div class="rv">1.1.1-beta</div><div class="rn">Phones and fixes</div></div>
         <ul>
           <li><b>Phone files are indexed</b> like any other evidence: File System, Media Analysis, hashes, keyword search, EXIF and GPS.</li>
@@ -686,7 +695,7 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
       <div>
         <img class="on-dark" src="assets/vestigex-logo-dark.png" alt="VESTIGEX" width="117" height="26">
         <img class="on-light" src="assets/vestigex-logo-light.png" alt="VESTIGEX" width="117" height="26">
-        <div class="by"><span>Developed by <a href="https://www.linkedin.com/in/rodelplasabas" target="_blank" rel="noopener">Rodel Plasabas <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></span><span class="mono" style="font-size:.8rem">Version 1.1.1-beta</span></div>
+        <div class="by"><span>Developed by <a href="https://www.linkedin.com/in/rodelplasabas" target="_blank" rel="noopener">Rodel Plasabas <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></span><span class="mono" style="font-size:.8rem">Version 1.1.2-beta</span></div>
       </div>
       <div class="ack">
         <h3>Acknowledgements</h3>
