@@ -326,6 +326,7 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
 .ack p { color: var(--muted); font-size: .86rem; max-width: 80ch; }
 .ack p + p { margin-top: 10px; }
 .legal { margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font: 400 .78rem var(--mono); color: var(--steel); }
+.release-date { display: block; margin: 4px 0; color: var(--muted); font-size: .85rem; }
 </style>
 </head>
 <body>
@@ -650,7 +651,7 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
     </div>
     <div class="log">
       <div class="rel">
-        <div><div class="rv">1.1.2-beta</div><div class="rn">Web server log parsing and timeline fixes</div></div>
+        <div><div class="rv">1.1.2-beta</div><time class="release-date" datetime="2026-10-11">October 11, 2026</time><div class="rn">Web server log parsing and timeline fixes</div></div>
         <ul>
           <li><b>Rotated web logs supported:</b> .log.1, .log.2, .log.3, and onward.</li>
           <li><b>Web browser events in the Timeline:</b> history and download start/completion times, linked to artifact details.</li>
@@ -659,7 +660,7 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
         </ul>
       </div>
       <div class="rel">
-        <div><div class="rv">1.1.1-beta</div><div class="rn">Phones and fixes</div></div>
+        <div><div class="rv">1.1.1-beta</div><time class="release-date" datetime="2026-10-10">October 10, 2026</time><div class="rn">Phones and fixes</div></div>
         <ul>
           <li><b>Phone files are indexed</b> like any other evidence: File System, Media Analysis, hashes, keyword search, EXIF and GPS.</li>
           <li><b>Android call log, SMS and contacts</b> on the Messaging page; installed apps and accounts on the Mobile page.</li>
@@ -668,7 +669,7 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
         </ul>
       </div>
       <div class="rel">
-        <div><div class="rv">1.1.0-beta</div><div class="rn">Acquisition</div></div>
+        <div><div class="rv">1.1.0-beta</div><time class="release-date" datetime="2026-10-09">October 9, 2026</time><div class="rn">Acquisition</div></div>
         <ul>
           <li><b>Acquire a drive or USB drive</b> to a verified E01 or raw image.</li>
           <li><b>Encrypted iPhone and iPad backups</b> over USB, without iTunes.</li>
@@ -677,7 +678,7 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
         </ul>
       </div>
       <div class="rel">
-        <div><div class="rv">1.0.0-beta</div><div class="rn">First release</div></div>
+        <div><div class="rv">1.0.0-beta</div><time class="release-date" datetime="2026-10-08">October 8, 2026</time><div class="rn">First release</div></div>
         <ul>
           <li><b>Windows desktop app</b> with a per-user installer and everything bundled.</li>
           <li><b>In-app Help</b> with 50 sections and a 20-page user guide.</li>
