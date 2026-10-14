@@ -34,7 +34,7 @@
   "applicationCategory": "SecurityApplication",
   "applicationSubCategory": "Digital forensics and incident response",
   "operatingSystem": "Windows 10, Windows 11",
-  "softwareVersion": "1.1.2-beta",
+  "softwareVersion": "1.1.3-beta",
   "url": "https://vestigex.app/",
   "image": "https://vestigex.app/assets/og-image.png",
   "downloadUrl": "https://vestigex.app/#download",
@@ -288,6 +288,9 @@ section.blk { padding-block: 88px; }
 .pkgs { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 20px; margin-top: 40px; }
 @media (max-width: 900px) { .pkgs { grid-template-columns: minmax(0, 1fr); } }
 .pkg { border: 1px solid var(--line); border-radius: 10px; background: var(--surface); padding: 28px; display: grid; gap: 16px; align-content: start; min-width: 0; }
+.pkgs-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 1000px) { .pkgs-3 { grid-template-columns: minmax(0, 1fr); } }
+.sha { font: 400 .72rem var(--mono); color: var(--steel); overflow-wrap: anywhere; }
 .pkg.main-pkg { border-color: color-mix(in srgb, var(--accent) 60%, var(--line)); }
 .pkg-h { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
 .badge { font: 500 .7rem var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--accent-hi); }
@@ -360,7 +363,7 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
       <h1>Every trace, <b>examined.</b></h1>
       <p class="lede">VESTIGEX is a Windows platform for digital forensics and incident response. Bring disk images, memory, phones and triage collections into one case, then search, hunt and report, all on your own machine.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="#download">Download 1.1.2-beta</a>
+        <a class="btn btn-primary" href="#download">Download 1.1.3-beta</a>
         <a class="btn btn-ghost" href="#capabilities">See what it does</a>
       </div>
       <p class="cta-note">Windows 10 / 11 · installs per user, no administrator rights</p>
@@ -504,6 +507,7 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
         <tbody>
           <tr><td>Disk images</td><td><code>E01</code> <code>raw / dd</code> <code>VHD / VHDX</code> and loose folders</td><td class="m">dissect</td></tr>
           <tr><td>Triage collections</td><td>KAPE output, Velociraptor offline collections, event logs <code>.evtx</code>, IIS / Apache / Nginx logs</td><td class="m">evtx_dump, VESTIGEX parsers</td></tr>
+          <tr><td>Network captures</td><td><code>.pcap</code> <code>.pcapng</code> from Wireshark, tcpdump and similar tools</td><td class="m">dpkt, VESTIGEX parsers</td></tr>
           <tr><td>Memory</td><td>Windows memory images and hibernation files</td><td class="m">Volatility 3</td></tr>
           <tr><td>iPhone and Android</td><td>Full file system extractions, iTunes / Finder backups (encrypted too), Android logical collections</td><td class="m">iLEAPP, ALEAPP</td></tr>
           <tr><td>macOS</td><td>Collected files and images, with Unified Logs as an option</td><td class="m">mac_apt</td></tr>
@@ -584,32 +588,38 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
   <div class="wrap">
     <div class="eyebrow">Download</div>
     <h2 style="margin-top:14px">Get VESTIGEX</h2>
-    <div class="ver"><span class="v">1.1.2-beta</span><span>New features and fixes · Windows 10 and 11, 64-bit</span></div>
+    <div class="ver"><span class="v">1.1.3-beta</span><span>PCAP network evidence and fixes · Windows 10 and 11, 64-bit</span></div>
 
-    <div class="pkgs">
+    <div class="pkgs pkgs-3">
       <div class="pkg main-pkg">
-        <div class="pkg-h"><h3>Install package</h3><span class="badge">Recommended</span></div>
-        <p>Works with Windows Smart App Control turned on. It downloads as one ZIP. Extract it to a folder and run <span class="mono">Install VESTIGEX.cmd</span>. The ZIP contains:</p>
+        <div class="pkg-h"><h3>Offline installer</h3><span class="badge">Everything included</span></div>
+        <p>Every component in one download. Nothing is fetched during setup, so it suits air-gapped forensic workstations.</p>
         <div class="files">
-          <div class="file"><div><code>Install VESTIGEX.cmd</code><small>Starts the installation</small></div><span class="sz">script</span></div>
-          <div class="file"><div><code>vestigex.zip</code><small>The application with every tool and model. Leave it zipped; the installer unpacks it</small></div><span class="sz">6.8 GB</span></div>
-          <div class="file"><div><code>OllamaSetup.exe</code><small>Optional, for the local AI</small></div><span class="sz">installer</span></div>
-          <div class="file"><div><code>VESTIGEX User Guide.pdf</code><small>Getting started and every page explained</small></div><span class="sz">PDF</span></div>
+          <div class="file"><div><code>VESTIGEX-1.1.3-beta-Offline.zip</code><small>App, Python runtime, speech and image models, CUDA 12 libraries, all forensic tools, Ollama installer, user guide</small></div><span class="sz">8.5 GB</span></div>
         </div>
-        <a class="btn btn-primary dl-link" href="https://drive.google.com/file/d/17JEWhtYntRGoTLWiySx75uoZqhZbRgzK/view?usp=sharing" target="_blank" rel="noopener">Download install package</a>
-        <span class="cta-note" style="margin-top:0">Hosted on Google Drive.</span>
+        <a class="btn btn-primary dl-link" href="LINK_OFFLINE" target="_blank" rel="noopener">Download offline installer</a>
+        <code class="sha">SHA-256 d01be9e5064d2b43afe107933d5e264efeae6124c89a77d62fe92a9f1939e247</code>
       </div>
       <div class="pkg">
-        <div class="pkg-h"><h3>Setup wizard</h3><span class="badge" style="color:var(--muted)">Alternative</span></div>
-        <p>The same installer as a classic wizard. Use it on PCs without Smart App Control until the installer is code-signed. It downloads as one ZIP; extract it and run the .exe. The ZIP contains:</p>
+        <div class="pkg-h"><h3>Online installer</h3><span class="badge">Smaller download</span></div>
+        <p>Installs the essentials, then a download manager fetches the speech and image models, CUDA libraries and Ollama from their official sources, showing each item's progress and checking every file.</p>
         <div class="files">
-          <div class="file"><div><code>VESTIGEX-Setup-1.1.2-beta.exe</code></div><span class="sz">wizard</span></div>
-          <div class="file"><div><code>VESTIGEX-Setup-1.1.2-beta.bin</code><small>Keep next to the .exe</small></div><span class="sz">data</span></div>
+          <div class="file"><div><code>VESTIGEX-1.1.3-beta-Online.zip</code><small>About 5.4 GB more is downloaded during setup; you can skip items and get them later in Settings</small></div><span class="sz">3.3 GB</span></div>
         </div>
-        <a class="btn btn-ghost dl-link" href="https://drive.google.com/file/d/1uzpIZZ_7LZGyd5W60IeeqrlBVfdqatG3/view?usp=sharing" target="_blank" rel="noopener">Download setup wizard</a>
-        <a href="assets/VESTIGEX-User-Guide.pdf" style="font-size:.9rem">Read the user guide (PDF)</a>
+        <a class="btn btn-ghost dl-link" href="LINK_ONLINE" target="_blank" rel="noopener">Download online installer</a>
+        <code class="sha">SHA-256 1c5ac3050e4bdc09c7147a8e169835ce14cf0b12ff57368e20038a6bebdef8b5</code>
+      </div>
+      <div class="pkg">
+        <div class="pkg-h"><h3>Update from 1.1.2-beta</h3><span class="badge">Already installed?</span></div>
+        <p>Updates an existing 1.1.2-beta installation in place. Every file is verified before anything changes, and a failed update rolls back to 1.1.2-beta. Cases, accounts, settings and hash sets are kept.</p>
+        <div class="files">
+          <div class="file"><div><code>VESTIGEX-1.1.3-beta-Update-from-1.1.2-beta.zip</code><small>Extract and run Update VESTIGEX.cmd</small></div><span class="sz">0.9 MB</span></div>
+        </div>
+        <a class="btn btn-ghost dl-link" href="LINK_UPDATE" target="_blank" rel="noopener">Download update</a>
+        <code class="sha">SHA-256 91a4d5a6fb77f9d726141e1eae9b14b4ec0c185a598715aafc1f182989bc02df</code>
       </div>
     </div>
+    <p class="cta-note">Hosted on Google Drive. Large files show a "can't scan for viruses" notice; choose Download anyway. Check a download in PowerShell with <span class="mono">Get-FileHash &lt;file&gt;</span>. <a href="assets/VESTIGEX-User-Guide.pdf">Read the user guide (PDF)</a></p>
 
     <div class="req-grid">
       <div class="req">
@@ -617,7 +627,7 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
         <ul>
           <li><b>Windows 10 or 11</b>, 64-bit</li>
           <li>Windows 10 needs the Edge WebView2 runtime (built into Windows 11)</li>
-          <li>Disk space for the 6.8 GB package, the installation and your cases</li>
+          <li>About 12 GB free for the installation, plus space for your cases</li>
           <li>An NVIDIA GPU is recommended for the local AI and speech transcription</li>
         </ul>
       </div>
@@ -625,7 +635,7 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
         <h3>Installing</h3>
         <ol>
           <li>Extract the downloaded ZIP to a folder.</li>
-          <li>Run <span class="mono">Install VESTIGEX.cmd</span>. No administrator rights needed.</li>
+          <li>Run <span class="mono">Install VESTIGEX.cmd</span> (or <span class="mono">Update VESTIGEX.cmd</span> for the update). No administrator rights needed.</li>
           <li>Open VESTIGEX from the Start menu.</li>
           <li>Sign in as <b>admin</b> / <b>admin</b> and choose a new password.</li>
         </ol>
@@ -650,6 +660,15 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
       <h2>Recent releases</h2>
     </div>
     <div class="log">
+      <div class="rel">
+        <div><div class="rv">1.1.3-beta</div><time class="release-date" datetime="2026-10-14">October 14, 2026</time><div class="rn">Network evidence and new installers</div></div>
+        <ul>
+          <li><b>PCAP and PCAPNG captures:</b> conversations, DNS, HTTP, TLS server names and JA3, rebuilt file transfers, hosts, remote-access sessions, scans, beaconing and cleartext logins, on a new Network page and in the Timeline.</li>
+          <li><b>Three ways to install:</b> offline, online with a download manager, and an in-place update from 1.1.2-beta that verifies every file and rolls back on failure.</li>
+          <li><b>Fixed:</b> processing could stop at the threat hunt when a case had repeated Prefetch records.</li>
+          <li><b>Timeline date range is kept</b> when you leave the page or change the timezone, and invalid or reversed times are refused.</li>
+        </ul>
+      </div>
       <div class="rel">
         <div><div class="rv">1.1.2-beta</div><time class="release-date" datetime="2026-10-11">October 11, 2026</time><div class="rn">Web server log parsing and timeline fixes</div></div>
         <ul>
@@ -697,7 +716,7 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
       <div>
         <img class="on-dark" src="assets/vestigex-logo-dark.png" alt="VESTIGEX" width="117" height="26">
         <img class="on-light" src="assets/vestigex-logo-light.png" alt="VESTIGEX" width="117" height="26">
-        <div class="by"><span>Developed by <a href="https://www.linkedin.com/in/rodelplasabas" target="_blank" rel="noopener">Rodel Plasabas <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></span><span class="mono" style="font-size:.8rem">Version 1.1.2-beta</span></div>
+        <div class="by"><span>Developed by <a href="https://www.linkedin.com/in/rodelplasabas" target="_blank" rel="noopener">Rodel Plasabas <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></span><span class="mono" style="font-size:.8rem">Version 1.1.3-beta</span></div>
       </div>
       <div class="ack">
         <h3>Acknowledgements</h3>
