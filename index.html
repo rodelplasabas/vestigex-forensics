@@ -507,7 +507,8 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
         <tbody>
           <tr><td>Disk images</td><td><code>E01</code> <code>raw / dd</code> <code>VHD / VHDX</code> and loose folders</td><td class="m">dissect</td></tr>
           <tr><td>Triage collections</td><td>KAPE output, Velociraptor offline collections, event logs <code>.evtx</code>, IIS / Apache / Nginx logs</td><td class="m">evtx_dump, VESTIGEX parsers</td></tr>
-          <tr><td>Network captures</td><td><code>.pcap</code> <code>.pcapng</code> from Wireshark, tcpdump and similar tools</td><td class="m">dpkt, VESTIGEX parsers</td></tr>
+          <tr><td>Network captures</td><td><code>.pcap</code> <code>.pcapng</code> from Wireshark, tcpdump and similar tools, and Windows <code>.etl</code> traces from pktmon or netsh</td><td class="m">dpkt, dissect.etl, VESTIGEX parsers</td></tr>
+          <tr><td>Cloud exports</td><td>Facebook Download Your Information (JSON) and Meta warrant returns, as a ZIP or folder</td><td class="m">VESTIGEX parsers</td></tr>
           <tr><td>Memory</td><td>Windows memory images and hibernation files</td><td class="m">Volatility 3</td></tr>
           <tr><td>iPhone and Android</td><td>Full file system extractions, iTunes / Finder backups (encrypted too), Android logical collections</td><td class="m">iLEAPP, ALEAPP</td></tr>
           <tr><td>macOS</td><td>Collected files and images, with Unified Logs as an option</td><td class="m">mac_apt</td></tr>
@@ -588,7 +589,7 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
   <div class="wrap">
     <div class="eyebrow">Download</div>
     <h2 style="margin-top:14px">Get VESTIGEX</h2>
-    <div class="ver"><span class="v">1.1.3-beta</span><span>PCAP network evidence and fixes · Windows 10 and 11, 64-bit</span></div>
+    <div class="ver"><span class="v">1.1.3-beta</span><span>Network and cloud evidence · Windows 10 and 11, 64-bit</span></div>
 
     <div class="pkgs pkgs-3">
       <div class="pkg main-pkg">
@@ -597,7 +598,7 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
         <div class="files">
           <div class="file"><div><code>VESTIGEX-1.1.3-beta-Offline.zip</code><small>App, Python runtime, speech and image models, CUDA 12 libraries, all forensic tools, Ollama installer, user guide</small></div><span class="sz">8.5 GB</span></div>
         </div>
-        <a class="btn btn-primary dl-link" href="LINK_OFFLINE" target="_blank" rel="noopener">Download offline installer</a>
+        <a class="btn btn-primary dl-link" href="https://drive.google.com/file/d/1US1RkgX3_6tBgP50YNePjbDgp8H0YRx9/view?usp=drive_link" target="_blank" rel="noopener">Download offline installer</a>
         <code class="sha">SHA-256 d01be9e5064d2b43afe107933d5e264efeae6124c89a77d62fe92a9f1939e247</code>
       </div>
       <div class="pkg">
@@ -606,7 +607,7 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
         <div class="files">
           <div class="file"><div><code>VESTIGEX-1.1.3-beta-Online.zip</code><small>About 5.4 GB more is downloaded during setup; you can skip items and get them later in Settings</small></div><span class="sz">3.3 GB</span></div>
         </div>
-        <a class="btn btn-ghost dl-link" href="LINK_ONLINE" target="_blank" rel="noopener">Download online installer</a>
+        <a class="btn btn-ghost dl-link" href="https://drive.google.com/file/d/1ypInPQrvhzUdY-QaVznhi5FKG9UEkXdb/view?usp=drive_link" target="_blank" rel="noopener">Download online installer</a>
         <code class="sha">SHA-256 1c5ac3050e4bdc09c7147a8e169835ce14cf0b12ff57368e20038a6bebdef8b5</code>
       </div>
       <div class="pkg">
@@ -615,7 +616,7 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
         <div class="files">
           <div class="file"><div><code>VESTIGEX-1.1.3-beta-Update-from-1.1.2-beta.zip</code><small>Extract and run Update VESTIGEX.cmd</small></div><span class="sz">0.9 MB</span></div>
         </div>
-        <a class="btn btn-ghost dl-link" href="LINK_UPDATE" target="_blank" rel="noopener">Download update</a>
+        <a class="btn btn-ghost dl-link" href="https://drive.google.com/file/d/1Z2EGmMIOEaLnYJqfLy_lABFWeEDnM4Wt/view?usp=drive_link" target="_blank" rel="noopener">Download update</a>
         <code class="sha">SHA-256 91a4d5a6fb77f9d726141e1eae9b14b4ec0c185a598715aafc1f182989bc02df</code>
       </div>
     </div>
@@ -661,12 +662,13 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
     </div>
     <div class="log">
       <div class="rel">
-        <div><div class="rv">1.1.3-beta</div><time class="release-date" datetime="2026-10-14">October 14, 2026</time><div class="rn">Network evidence and new installers</div></div>
+        <div><div class="rv">1.1.3-beta</div><time class="release-date" datetime="2026-10-15">October 15, 2026</time><div class="rn">Network and cloud evidence, new installers</div></div>
         <ul>
-          <li><b>PCAP and PCAPNG captures:</b> conversations, DNS, HTTP, TLS server names and JA3, rebuilt file transfers, hosts, remote-access sessions, scans, beaconing and cleartext logins, on a new Network page and in the Timeline.</li>
+          <li><b>PCAP, PCAPNG and Windows ETL captures:</b> conversations, DNS, HTTP, IPv6 and tunnelled traffic, TLS certificates with JA3/JA4, OS fingerprints, host and account names, rebuilt files, email, chat and VoIP calls you can play back, on a new Network page and in the Timeline.</li>
+          <li><b>Facebook and Meta warrant returns:</b> a new Cloud section reads Download Your Information exports and warrant returns, with Messenger chats on the Messaging page.</li>
+          <li><b>Safer exports:</b> programs and scripts written to the case folder get a .bin extension so they can't run by accident; VESTIGEX keeps the original name.</li>
           <li><b>Three ways to install:</b> offline, online with a download manager, and an in-place update from 1.1.2-beta that verifies every file and rolls back on failure.</li>
-          <li><b>Fixed:</b> processing could stop at the threat hunt when a case had repeated Prefetch records.</li>
-          <li><b>Timeline date range is kept</b> when you leave the page or change the timezone, and invalid or reversed times are refused.</li>
+          <li><b>Fixed:</b> processing could stop at the threat hunt on repeated Prefetch records, the Timeline date range now survives navigation, and the app no longer shows an old interface after an update.</li>
         </ul>
       </div>
       <div class="rel">
