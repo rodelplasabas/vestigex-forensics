@@ -34,6 +34,13 @@ function vx_classify_line(string $line): ?array {
 function vx_logstats_refresh(int $budget = 67108864): array {
     $logs = vx_config()['cdn_logs'] ?? [];
     if (is_string($logs)) $logs = [$logs];
+    // Entries may be patterns such as C:/xampp/apache/logs/cdn-access-*.log (monthly files).
+    $expanded = [];
+    foreach ($logs as $l) {
+        if (strpbrk($l, '*?[') !== false) { $g = glob($l) ?: []; sort($g); $expanded = array_merge($expanded, $g); }
+        else $expanded[] = $l;
+    }
+    $logs = array_values(array_unique($expanded));
     $salt = vx_secret();
 
     return vx_json_update('logstats.json', [], function ($st) use ($logs, $salt, $budget) {

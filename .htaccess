@@ -1,3 +1,0 @@
-# Server-side helpers are not pages. (Each file also refuses to run on its own.)
-RedirectMatch 404 ^/(inc|tools)(/|$)
-RedirectMatch 404 /\.git

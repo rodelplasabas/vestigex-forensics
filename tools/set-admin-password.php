@@ -27,10 +27,10 @@ $p2 = ask('Again: ', true);
 if ($p1 !== $p2) { fwrite(STDERR, "The passwords differ.\n"); exit(1); }
 
 $cur = vx_config();
-$default = $cur['cdn_logs'][0] ?? '';
+$default = $cur['cdn_logs'][0] ?? 'C:/xampp/apache/logs/cdn-access.log';
 $log = ask('CDN access log to count' . ($default ? " [$default]" : ' (blank to skip)') . ': ');
 if ($log === '') $log = $default;
-if ($log !== '' && !is_readable($log)) echo "Warning: cannot read $log yet.\n";
+if ($log !== '' && strpbrk($log, '*?[') === false && !is_readable($log)) echo "Warning: cannot read $log yet.\n";
 
 vx_json_update('config.json', [], function ($c) use ($p1, $log) {
     $c['admin_password_hash'] = password_hash($p1, PASSWORD_DEFAULT);
