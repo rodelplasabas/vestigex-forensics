@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Privacy notice – VESTIGEX</title>
+<meta name="description" content="What VESTIGEX collects when you visit vestigex.app, download the software or let it check for updates, why, how long it is kept and how to exercise your rights.">
+<link rel="canonical" href="https://vestigex.app/privacy.html">
+<meta name="theme-color" content="#111317">
+<link rel="icon" type="image/png" href="assets/vestigex-mark-dark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+:root {
+  --bg: #111317; --surface: #171A1F; --line: #2A3039; --fg: #E4E7EB; --muted: #8E98A5;
+  --accent: #4A90C2; --accent-hi: #6FAAD6; --accent-ink: #0B1A26; --steel: #5C6670; --sev-high: #E07A4F;
+  --display: "Saira", "Segoe UI", system-ui, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #F1F3F5; --surface: #FFFFFF; --line: #D3DAE1; --fg: #13171C; --muted: #59636F;
+    --accent: #2F6F9F; --accent-hi: #24597F; --accent-ink: #FFFFFF; --steel: #8A949E; --sev-high: #C2541F;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #F1F3F5; --surface: #FFFFFF; --line: #D3DAE1; --fg: #13171C; --muted: #59636F;
+  --accent: #2F6F9F; --accent-hi: #24597F; --accent-ink: #FFFFFF; --steel: #8A949E; --sev-high: #C2541F;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 400 16px/1.65 var(--body); -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; }
+a { color: var(--accent-hi); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 820px; margin: 0 auto; padding-inline: 16px; }
+.top { border-bottom: 1px solid var(--line); background: var(--surface); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; max-width: 1180px; }
+.top img { height: 28px; width: auto; }
+.on-light { display: none; }
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .on-light { display: block; } :root:not([data-theme="dark"]) .on-dark { display: none; } }
+.back { color: var(--muted); text-decoration: none; font-size: .92rem; }
+.back:hover { color: var(--fg); }
+main { padding-block: 56px 80px; }
+.eyebrow { font: 500 .74rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--accent-hi); }
+h1, h2 { font-family: var(--display); font-weight: 500; line-height: 1.15; margin: 0; }
+h1 { font-size: clamp(2rem, 4vw, 2.7rem); margin: 14px 0 10px; }
+h2 { font-size: 1.3rem; margin: 44px 0 12px; padding-top: 22px; border-top: 1px solid var(--line); }
+p, li { color: var(--muted); }
+p { margin: 0 0 12px; }
+b, strong { color: var(--fg); font-weight: 500; }
+ul { margin: 0 0 12px; padding-left: 20px; display: grid; gap: 6px; }
+.meta { font: 400 .82rem var(--mono); color: var(--steel); }
+.scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); margin: 6px 0 14px; }
+table { border-collapse: collapse; width: 100%; font-size: .9rem; min-width: 560px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+th { color: var(--fg); font-weight: 500; }
+td { color: var(--muted); }
+tr:last-child td { border-bottom: 0; }
+code { font: 400 .86em var(--mono); color: var(--fg); }
+.btn { display: inline-flex; align-items: center; gap: 10px; font: 500 .95rem/1 var(--body); padding: 12px 18px; border-radius: 6px; text-decoration: none; border: 1px solid transparent; cursor: pointer; }
+.btn-primary { background: var(--accent); color: var(--accent-ink); }
+.btn-primary:hover { background: var(--accent-hi); }
+.btn-ghost { border-color: var(--line); color: var(--fg); background: transparent; }
+.btn-ghost:hover { border-color: var(--steel); }
+.btn-sm { padding: 9px 14px; font-size: .88rem; }
+footer { border-top: 1px solid var(--line); padding-block: 28px 40px; font: 400 .78rem var(--mono); color: var(--steel); }
+</style>
+<link rel="stylesheet" href="assets/site-forms.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a href="./" aria-label="VESTIGEX home">
+      <img class="on-dark" src="assets/vestigex-logo-dark.png" alt="VESTIGEX" width="126" height="28">
+      <img class="on-light" src="assets/vestigex-logo-light.png" alt="VESTIGEX" width="126" height="28">
+    </a>
+    <a class="back" href="./#download">Back to downloads</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="eyebrow">Privacy</div>
+  <h1>Privacy notice</h1>
+  <p class="meta">Last updated 17 November 2026</p>
+  <p>This notice explains what personal data VESTIGEX collects when you visit vestigex.app, download the software, or let an installed copy check for updates; why we collect it; how long we keep it; and the rights you have. It is written to meet the Philippine Data Privacy Act of 2012 (Republic Act No. 10173) and its implementing rules, and the EU General Data Protection Regulation (GDPR) for visitors in the European Economic Area.</p>
+  <p><b>The short version:</b> we ask for your name, organization and email before a download, keep what our web servers log as a matter of course, and nothing else. We do not use tracking or advertising cookies, we do not sell or share your details, and the VESTIGEX application never sends your cases or evidence anywhere.</p>
+
+  <h2>Who is responsible</h2>
+  <p>VESTIGEX is developed by Rodel Plasabas, in the Philippines, who decides how this data is used (the personal information controller under the Data Privacy Act, and the controller under the GDPR). For any privacy question or request, write to <a href="mailto:privacy@vestigex.app">privacy@vestigex.app</a>.</p>
+
+  <h2>What we collect and why</h2>
+  <div class="scroll"><table>
+    <tr><th>When</th><th>What</th><th>Why, and on what basis</th><th>How long</th></tr>
+    <tr><td><b>You fill in the download form</b></td><td>Name, organization, email address, the file you chose, the date and time, and which version of this notice you agreed to.</td><td>To know who uses VESTIGEX, to plan its development, and to contact you about the release you downloaded (for example a serious fix or a security notice). Basis: your consent (Data Privacy Act sec. 12(a); GDPR art. 6(1)(a)).</td><td>24 months, then deleted automatically, or sooner if you ask.</td></tr>
+    <tr><td><b>You visit the site or download a file</b></td><td>The web server's access log: your IP address, date and time, the page or file requested, whether it succeeded, the referring page and your browser's user agent.</td><td>To deliver the site and downloads, keep them secure and working, and count downloads. Download counts are worked out from the log without storing IP addresses in them. Basis: legitimate interests in running a secure service (DPA sec. 12(f); GDPR art. 6(1)(f)).</td><td>Up to 12 months.</td></tr>
+    <tr><td><b>An installed VESTIGEX checks for updates</b></td><td>When it starts, VESTIGEX downloads a small file listing the latest version from cdn.vestigex.app. Like any download, this is recorded in the access log above. It sends no account, case, evidence or device identifier.</td><td>To offer updates, and to estimate how many installations are in use. You can turn the check off in VESTIGEX under Settings &gt; Updates. Basis: legitimate interests (as above).</td><td>Up to 12 months.</td></tr>
+  </table></div>
+  <p>The form is optional in the sense that VESTIGEX itself is free to use; if you prefer not to give your details, do not use the form. We do not use your details for automated decisions or profiling, and we do not add you to a newsletter.</p>
+
+  <h2>Cookies and browser storage</h2>
+  <p>vestigex.app does not set tracking, analytics or advertising cookies. It keeps two small notes in your own browser, which never leave it:</p>
+  <ul>
+    <li><code>vx_privacy_notice</code> (local storage): that you closed the privacy notice bar, so it is not shown again.</li>
+    <li><code>vx_dl_form</code> (session storage, cleared when you close the tab): that you already filled in the download form, so further downloads in the same visit go straight through. It does not contain your details.</li>
+  </ul>
+  <p>The site is delivered through <b>Cloudflare</b>, which protects it from attacks and may set a strictly necessary security cookie (such as <code>__cf_bm</code>) to tell people from bots. Fonts are loaded from <b>Google Fonts</b>, so Google receives your IP address and browser details when the page loads. See the <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">Cloudflare</a> and <a href="https://policies.google.com/privacy" rel="noopener">Google</a> privacy policies.</p>
+
+  <h2>Who can see it</h2>
+  <p>Form details are seen only by the developer of VESTIGEX. They are stored on a server rented from <b>OVHcloud</b>, outside the public website folder, behind a password-protected page. Cloudflare and Google process the data described above as service providers. We do not sell, rent or trade personal data, and we disclose it only where the law requires. Because these providers operate internationally, your data may be processed outside your country; we rely on their contractual and security commitments when that happens.</p>
+
+  <h2>How we protect it</h2>
+  <p>The site is served only over HTTPS. Form details are kept on the server outside the web root, are not reachable by a web address, and are visible only after signing in. Login attempts are limited, and data is deleted when the retention period ends. If a breach affecting your data occurs, we will notify the National Privacy Commission and you as the law requires.</p>
+
+  <h2>Your rights</h2>
+  <p>Under the Data Privacy Act you have the right to be informed, to access your data, to object to its processing, to have it corrected, to have it erased or blocked, to data portability, to be indemnified for damages, and to file a complaint. Under the GDPR you have similar rights, including restriction of processing. You may withdraw consent for the download form at any time; this does not affect processing that already happened.</p>
+  <p>To use any of these rights, email <a href="mailto:privacy@vestigex.app">privacy@vestigex.app</a> from the address you used in the form. We will reply within 30 days. If you are not satisfied, you can complain to the <a href="https://privacy.gov.ph" rel="noopener">National Privacy Commission</a> of the Philippines or, in the EEA, to your local data protection authority.</p>
+
+  <h2>Changes</h2>
+  <p>If this notice changes, the date at the top changes too, and the notice bar on the site appears again. If we ever want to use form details for a new purpose, we will ask you first.</p>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="yr">2026</span> VESTIGEX · <a href="./">vestigex.app</a></div>
+</footer>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script src="assets/site-forms.js" defer></script>
+</body>
+</html>

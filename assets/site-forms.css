@@ -1,0 +1,27 @@
+/* Download form dialog and the privacy notice bar. Uses the page's colour tokens. */
+.vx-dlg { width: min(480px, calc(100vw - 32px)); max-height: calc(100vh - 32px); overflow: auto; padding: 0; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--fg); box-shadow: 0 24px 60px rgba(0,0,0,.45); }
+.vx-dlg::backdrop { background: rgba(8,10,13,.68); }
+.vx-dlg form { display: grid; gap: 14px; padding: 26px; }
+.vx-dlg h2 { font-size: 1.35rem; }
+.vx-dlg .vx-file { font: 400 .8rem var(--mono); color: var(--accent-hi); overflow-wrap: anywhere; }
+.vx-dlg p { color: var(--muted); font-size: .9rem; }
+.vx-field { display: grid; gap: 5px; }
+.vx-field label { font-size: .85rem; color: var(--fg); font-weight: 500; }
+.vx-field input { font: inherit; font-size: .95rem; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 9px 11px; width: 100%; }
+.vx-field input:focus { outline: 2px solid var(--accent); outline-offset: 0; border-color: var(--accent); }
+.vx-field input[aria-invalid="true"] { border-color: var(--sev-high); }
+.vx-err { color: var(--sev-high); font-size: .8rem; min-height: 0; }
+.vx-err:empty { display: none; }
+.vx-check { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; align-items: start; font-size: .86rem; color: var(--muted); }
+.vx-check input { margin-top: 3px; width: 16px; height: 16px; accent-color: var(--accent); }
+.vx-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.vx-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; align-items: center; margin-top: 4px; }
+.vx-actions .btn { cursor: pointer; font: inherit; }
+.vx-status { font-size: .86rem; color: var(--sev-high); }
+.vx-status:empty { display: none; }
+.vx-status a { color: var(--accent-hi); }
+
+.vx-notice { position: fixed; z-index: 60; left: 16px; right: 16px; bottom: 16px; max-width: 760px; margin: 0 auto; display: flex; gap: 14px 18px; align-items: center; flex-wrap: wrap; padding: 14px 18px; background: var(--surface); color: var(--fg); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 12px 40px rgba(0,0,0,.35); font-size: .88rem; }
+.vx-notice p { flex: 1 1 320px; color: var(--muted); margin: 0; }
+.vx-notice p b { color: var(--fg); font-weight: 500; }
+.vx-notice .btn { cursor: pointer; font: inherit; font-size: .88rem; }

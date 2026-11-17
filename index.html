@@ -58,6 +58,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/site-forms.css">
 <style>
 /* Layout: one long dark-first page. Hero pairs the claim with a working replica of the app window;
    below it, sections alternate between plain reading columns and dense evidence grids, ending at the download hub. */
@@ -830,7 +831,7 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
         <p>VESTIGEX supports investigations; it does not replace the examiner's judgment. Confirm significant findings before relying on them.</p>
       </div>
     </div>
-    <div class="legal"><span>© <span id="yr">2026</span> VESTIGEX. All rights reserved.</span><span>vestige + examination</span></div>
+    <div class="legal"><span>© <span id="yr">2026</span> VESTIGEX. All rights reserved.</span><span><a href="privacy.html" style="color:inherit">Privacy notice</a> · vestige + examination</span></div>
   </div>
 </footer>
 
@@ -858,5 +859,6 @@ footer { border-top: 1px solid var(--line); padding-block: 48px 40px; background
   document.getElementById("yr").textContent = new Date().getFullYear();
 })();
 </script>
+<script src="assets/site-forms.js" defer></script>
 </body>
 </html>
