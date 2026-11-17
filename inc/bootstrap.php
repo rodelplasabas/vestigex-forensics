@@ -3,6 +3,9 @@
 // .htaccess denies /inc, and this file does nothing unless included.
 if (!defined('VX_APP')) { http_response_code(404); exit; }
 
+// Dates on the stats page follow Rodel's time zone, not the server's php.ini default.
+date_default_timezone_set('Asia/Manila');
+
 // Where submissions, stats and the admin password live. Must be outside every web root.
 // Default: a "vestigex-data" folder beside the site folder (C:\www\vestigex-data when the
 // site is C:\www\vestigex.app). Set VESTIGEX_DATA_DIR (Apache SetEnv) to put it elsewhere.

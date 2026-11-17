@@ -102,7 +102,7 @@ if (($_GET['export'] ?? '') === 'csv') {
     header('Content-Disposition: attachment; filename="vestigex-downloads-' . gmdate('Ymd') . '.csv"');
     $out = fopen('php://output', 'w');
     fwrite($out, "\xEF\xBB\xBF");
-    fputcsv($out, ['time_utc', 'name', 'organization', 'email', 'file', 'version']);
+    fputcsv($out, ['time_utc', 'name', 'organization', 'email', 'file', 'version'], ',', '"', '');
     foreach ($subs as $r) {
         $row = [];
         foreach (['time', 'name', 'organization', 'email', 'file', 'version'] as $k) {
@@ -110,7 +110,7 @@ if (($_GET['export'] ?? '') === 'csv') {
             if ($v !== '' && strpos('=+-@' . "\t\r", $v[0]) !== false) $v = "'" . $v;
             $row[] = $v;
         }
-        fputcsv($out, $row);
+        fputcsv($out, $row, ',', '"', '');
     }
     exit;
 }
@@ -130,8 +130,8 @@ foreach ($st['download'] as $byDate) { $dlTotal += $sum($byDate); $dl30 += $sum(
 $updTotal = 0;
 foreach ($st['update'] as $byDate) $updTotal += $sum($byDate);
 $form30 = 0;
-$from30 = gmdate('Y-m-d', strtotime('-29 days'));
-foreach ($subs as $r) if (substr($r['time'] ?? '', 0, 10) >= $from30) $form30++;
+$from30 = date('Y-m-d', strtotime('-29 days'));
+foreach ($subs as $r) if (date('Y-m-d', strtotime($r['time'] ?? 'now')) >= $from30) $form30++;
 
 $b = '<div class="bar"><div><h1>VESTIGEX downloads</h1><div class="mu">CDN log read ' . vx_h($st['updated'] ?? 'never') . '</div></div>'
    . '<form method="post"><input type="hidden" name="csrf" value="' . vx_h($csrf) . '"><button name="action" value="logout">Sign out</button></form></div>';
@@ -163,7 +163,7 @@ $b .= '</table></div><p class="mu" style="font-size:.85rem;margin-top:8px">A CDN
 // Last 14 days.
 $b .= '<h2>Last 14 days</h2><div class="scroll"><table><tr><th>Date</th><th class="n">CDN downloads</th><th class="n">Form</th><th class="n">Update checks</th><th class="n">Updates started</th></tr>';
 $formByDay = [];
-foreach ($subs as $r) { $d = substr($r['time'] ?? '', 0, 10); $formByDay[$d] = ($formByDay[$d] ?? 0) + 1; }
+foreach ($subs as $r) { $d = date('Y-m-d', strtotime($r['time'] ?? 'now')); $formByDay[$d] = ($formByDay[$d] ?? 0) + 1; }
 for ($i = 0; $i < 14; $i++) {
     $d = date('Y-m-d', strtotime($today . ' -' . $i . ' days'));
     $dl = 0; foreach ($st['download'] as $bd) $dl += $bd[$d] ?? 0;
