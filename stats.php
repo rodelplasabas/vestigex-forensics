@@ -37,7 +37,7 @@ function vx_page(string $title, string $body): void {
        . 'input,button{font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:7px 10px}'
        . 'button{cursor:pointer}button.pri{background:var(--ac);border-color:var(--ac);color:#fff}button.link{border:0;background:none;color:var(--bad);padding:0}'
        . '.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}.login{max-width:340px;margin:12vh auto;display:grid;gap:12px}'
-       . '</style></head><body><main>' . $body . '</main></body></html>';
+       . '</style></head><body><!--email_off--><main>' . $body . '</main><!--/email_off--></body></html>';
     exit;
 }
 
@@ -127,8 +127,13 @@ $sum = function (array $byDate, int $days = 0) use ($today) {
 
 $dlTotal = 0; $dl30 = 0;
 foreach ($st['download'] as $byDate) { $dlTotal += $sum($byDate); $dl30 += $sum($byDate, 30); }
+// An update fetches two manifests: the new release's and the installed release's ("base").
+// So updates = fetches of the newest release's manifests; older ones show where people came from.
+$mver = function ($m) { return preg_replace('/-(windows|linux|macos)$/i', '', $m); };
+$newest = '';
+foreach (array_keys($st['update']) as $m) if ($newest === '' || version_compare($mver($m), $newest, '>')) $newest = $mver($m);
 $updTotal = 0;
-foreach ($st['update'] as $byDate) $updTotal += $sum($byDate);
+foreach ($st['update'] as $m => $byDate) if ($mver($m) === $newest) $updTotal += $sum($byDate);
 $form30 = 0;
 $from30 = date('Y-m-d', strtotime('-29 days'));
 foreach ($subs as $r) if (date('Y-m-d', strtotime($r['time'] ?? 'now')) >= $from30) $form30++;
@@ -144,7 +149,7 @@ $b .= '<div class="tiles">'
     . '<div class="tile"><b>' . count($subs) . '</b><span>Form submissions (' . $form30 . ' in 30 days)</span></div>'
     . '<div class="tile"><b>' . vx_active_installs($st, 1, $today) . '</b><span>Installs that checked for updates today</span></div>'
     . '<div class="tile"><b>' . vx_active_installs($st, 7, $today) . ' / ' . vx_active_installs($st, 30, $today) . '</b><span>Active installs, 7 / 30 days</span></div>'
-    . '<div class="tile"><b>' . $updTotal . '</b><span>Updates started, all time</span></div>'
+    . '<div class="tile"><b>' . $updTotal . '</b><span>Updates to ' . vx_h($newest ?: 'the newest release') . ' started</span></div>'
     . '</div>';
 
 // Per file: CDN downloads next to form submissions.
@@ -161,21 +166,23 @@ if (!$files) $b .= '<tr><td colspan="5" class="mu">No downloads yet</td></tr>';
 $b .= '</table></div><p class="mu" style="font-size:.85rem;margin-top:8px">A CDN download is one address fetching a file on one day, so resumed and multi-part downloads count once. Form counts people who filled in the form; direct links to the CDN skip it.</p>';
 
 // Last 14 days.
-$b .= '<h2>Last 14 days</h2><div class="scroll"><table><tr><th>Date</th><th class="n">CDN downloads</th><th class="n">Form</th><th class="n">Update checks</th><th class="n">Updates started</th></tr>';
+$b .= '<h2>Last 14 days</h2><div class="scroll"><table><tr><th>Date</th><th class="n">CDN downloads</th><th class="n">Form</th><th class="n">Update checks</th><th class="n">Updates to ' . vx_h($newest ?: 'newest') . '</th></tr>';
 $formByDay = [];
 foreach ($subs as $r) { $d = date('Y-m-d', strtotime($r['time'] ?? 'now')); $formByDay[$d] = ($formByDay[$d] ?? 0) + 1; }
 for ($i = 0; $i < 14; $i++) {
     $d = date('Y-m-d', strtotime($today . ' -' . $i . ' days'));
     $dl = 0; foreach ($st['download'] as $bd) $dl += $bd[$d] ?? 0;
-    $up = 0; foreach ($st['update'] as $bd) $up += $bd[$d] ?? 0;
+    $up = 0; foreach ($st['update'] as $m => $bd) if ($mver($m) === $newest) $up += $bd[$d] ?? 0;
     $b .= '<tr><td>' . $d . '</td><td class="n">' . $dl . '</td><td class="n">' . ($formByDay[$d] ?? 0) . '</td><td class="n">' . ($st['check'][$d] ?? 0) . '</td><td class="n">' . $up . '</td></tr>';
 }
 $b .= '</table></div>';
 
 if ($st['update']) {
-    $b .= '<h2>Updates started, by release</h2><div class="scroll"><table><tr><th>Manifest</th><th class="n">30 days</th><th class="n">All time</th></tr>';
-    foreach ($st['update'] as $m => $bd) $b .= '<tr><td>' . vx_h($m) . '</td><td class="n">' . $sum($bd, 30) . '</td><td class="n">' . $sum($bd) . '</td></tr>';
-    $b .= '</table></div>';
+    $rows = $st['update'];
+    uksort($rows, function ($x, $y) use ($mver) { return version_compare($mver($y), $mver($x)) ?: strcmp($x, $y); });
+    $b .= '<h2>Updater manifests fetched</h2><div class="scroll"><table><tr><th>Manifest</th><th>Means</th><th class="n">30 days</th><th class="n">All time</th></tr>';
+    foreach ($rows as $m => $bd) $b .= '<tr><td>' . vx_h($m) . '</td><td class="mu">' . ($mver($m) === $newest ? 'updates to this release' : 'updated from this release') . '</td><td class="n">' . $sum($bd, 30) . '</td><td class="n">' . $sum($bd) . '</td></tr>';
+    $b .= '</table></div><p class="mu" style="font-size:.85rem;margin-top:8px">Each update reads the manifest of the new release and of the installed one, so older rows show which versions people updated from.</p>';
 }
 
 // Submissions, newest first, with search and delete (for erasure requests).
